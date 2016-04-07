@@ -79,3 +79,5 @@ if $PROFILE_STARTUP; then
   # restore stderr to the value saved in FD 3
   exec 2>&3 3>&-
 fi
+
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
