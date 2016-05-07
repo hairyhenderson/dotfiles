@@ -29,6 +29,19 @@ if [ -d ~/.nvm ]; then
   nvm use node >/dev/null
 fi
 
+# call nvm use automatically whenever you enter a directory that contains an .nvmrc file 
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 #unalias run-help &> /dev/null
 #autoload run-help
 #HELPDIR=/usr/local/share/zsh/help
@@ -69,10 +82,6 @@ antigen theme $DOTFILES_HOME/themes dave
 # 1520ms
 antigen apply
 
-
-#if [ "$(docker-machine ls | awk '/^dev\ /{print $4}')" == "Running" ]; then
-#  eval "$(docker-machine env dev)"
-#fi
 
 if $PROFILE_STARTUP; then
   unsetopt xtrace
