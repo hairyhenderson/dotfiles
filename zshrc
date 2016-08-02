@@ -27,20 +27,20 @@ if [ -d ~/.nvm ]; then
   export NVM_DIR=~/.nvm
   source $(brew --prefix nvm)/nvm.sh
   nvm use node >/dev/null
-fi
 
-# call nvm use automatically whenever you enter a directory that contains an .nvmrc file 
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+  # call nvm use automatically whenever you enter a directory that contains an .nvmrc file 
+  autoload -U add-zsh-hook
+  load-nvmrc() {
+    if [[ -f .nvmrc && -r .nvmrc ]]; then
+      nvm use
+    elif [[ $(nvm version) != $(nvm version default)  ]]; then
+      echo "Reverting to nvm default version"
+      nvm use default
+    fi
+  }
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi
 
 #unalias run-help &> /dev/null
 #autoload run-help
