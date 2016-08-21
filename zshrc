@@ -25,7 +25,12 @@ fi
 
 if [ -d ~/.nvm ]; then
   export NVM_DIR=~/.nvm
-  source $(brew --prefix nvm)/nvm.sh
+  if [ -f $NVM_DIR/nvm.sh ]; then
+    source $NVM_DIR/nvm.sh
+  elif [ -x "$(which brew)" ]; then
+    source $(brew --prefix nvm)/nvm.sh
+  fi
+
   nvm use node >/dev/null
 
   # call nvm use automatically whenever you enter a directory that contains an .nvmrc file 
