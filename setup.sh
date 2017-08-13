@@ -5,7 +5,7 @@ set -e
 git submodule update --init --recursive
 
 # Make sure rcm's config is set up
-ln -s $HOME/.dotfiles/rcrc $HOME/.rcrc || true
+ln -s $HOME/.dotfiles/.rcrc $HOME/.rcrc || true
 
 # set up symlinks
 rcup 
