@@ -35,7 +35,8 @@ filetype off                   " required!
 
 " Dave's vim-go config from the tutorial
 call plug#begin()
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'tpope/vim-sensible'
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 call plug#end()
 
 set autowrite
