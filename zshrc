@@ -1,12 +1,14 @@
-export GOPATH="$HOME/gocode"
+if [ -d "$HOME/gocode" ]; then
+  export GOPATH="$HOME/gocode"
+fi
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/bin:$GOPATH/bin:$PATH:$HOME/.rvm/bin:/usr/local/opt/go/libexec/bin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="$HOME/bin/docker:$PATH"
-export PATH="$HOME/bin/packer:$PATH"
-export PATH="$HOME/bin/terraform:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/bin/docker:$HOME/bin/packer:$HOME/bin/terraform:$PATH"
 
 export EDITOR="vim"
 
