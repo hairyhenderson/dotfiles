@@ -119,4 +119,11 @@ if $PROFILE_STARTUP; then
 fi
 
 alias ls='ls --color=auto -G'
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+if [ -d ~/bin/google-cloud-sdk/ ]; then
+  source ~/bin/google-cloud-sdk/completion.zsh.inc
+  source ~/bin/google-cloud-sdk/path.zsh.inc
+
+  eval $(minikube completion zsh)
+  eval $(kubectl completion zsh)
+fi
