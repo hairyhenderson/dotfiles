@@ -1,14 +1,36 @@
+# convenience functions to insert/append to the path, while not polluting it with
+# nonexistant paths on systems where they don't exist
+function pathinsert () {
+  if [[ -d $1 ]]; then
+    export PATH="$1:$PATH"
+  fi
+}
+
+function pathappend () {
+  if [[ -d $1 ]]; then
+    export PATH="$PATH:$1"
+  fi
+}
+
 if [ -d "$HOME/gocode" ]; then
   export GOPATH="$HOME/gocode"
+else
+  export GOPATH="$HOME/go"
 fi
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="$HOME/bin:$GOPATH/bin:$PATH:$HOME/.rvm/bin:/usr/local/opt/go/libexec/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
-export PATH="$HOME/bin/docker:$HOME/bin/packer:$HOME/bin/terraform:$PATH"
+pathappend "$HOME/.rvm/bin"
+pathappend "/usr/local/opt/go/libexec/bin"
+pathinsert "$HOME/bin"
+pathinsert "$HOME/Library/Python/2.7/bin"
+pathinsert "/usr/local/opt/coreutils/libexec/gnubin"
+pathinsert "/usr/local/opt/gnu-sed/libexec/gnubin"
+pathinsert "/usr/local/opt/gettext/bin"
+pathinsert "/usr/local/go/bin"
+pathinsert "$HOME/bin/docker"
+pathinsert "$HOME/bin/packer"
+pathinsert "$HOME/bin/terraform"
+pathinsert "$HOME/bin/google-cloud-sdk/bin"
+pathinsert "$GOPATH/bin"
 
 export EDITOR="vim"
 
@@ -58,35 +80,13 @@ source $DOTFILES_HOME/antigen/antigen.zsh
 
 COMPLETION_WAITING_DOTS="true"
 
-# 170ms
 antigen use oh-my-zsh
 
-# 90ms
-antigen bundle git
-# antigen bundle heroku
-# antigen bundle pip
-# 90ms
-antigen bundle docker
-# 80ms
-antigen bundle node
-# 80ms
-# antigen bundle brew
-# 80ms
-#antigen bundle rvm
-# antigen bundle vagrant
-# antigen bundle python
-# 80ms
-# antigen bundle command-not-found
-# 130ms
-#antigen bundle mvn
+for bundle in git docker node kubectl; do
+  (( $+commands[$bundle] )) && antigen bundle $bundle
+done
 
-# 140ms
-#antigen bundle zsh-users/zsh-syntax-highlighting
-
-# 100ms
 antigen theme $DOTFILES_HOME/themes dave
-
-# 1520ms
 antigen apply
 
 # installed by the `awscli` homebrew package
@@ -95,7 +95,7 @@ if [ -f /usr/local/share/zsh/site-functions/_aws ]; then
 fi
 
 if [ -d ~/.nvm ]; then
-# call nvm use automatically whenever you enter a directory that contains an .nvmrc file 
+  # call nvm use automatically whenever you enter a directory that contains an .nvmrc file 
   autoload -U add-zsh-hook
   load-nvmrc() {
     if [[ -f .nvmrc && -r .nvmrc ]]; then
@@ -122,8 +122,10 @@ alias ls='ls --color=auto -G'
 
 if [ -d ~/bin/google-cloud-sdk/ ]; then
   source ~/bin/google-cloud-sdk/completion.zsh.inc
-  source ~/bin/google-cloud-sdk/path.zsh.inc
 
   eval $(minikube completion zsh)
-  eval $(kubectl completion zsh)
 fi
+
+for cmd in kubectl helm; do
+  (( $+commands[$cmd] )) && source <($cmd completion zsh)
+done
