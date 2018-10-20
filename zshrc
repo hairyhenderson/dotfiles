@@ -63,6 +63,9 @@ fi
 
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 
+alias ip='ip --color'
+alias ipb='ip --color --brief'
+
 if [ -d ~/.nvm ]; then
   export NVM_DIR=~/.nvm
   local nvm_script
