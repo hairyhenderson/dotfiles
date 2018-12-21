@@ -34,6 +34,8 @@ pathinsert "$GOPATH/bin"
 
 export EDITOR="vim"
 
+export DOCKER_BUILDKIT=1
+
 # Set this to true to profile the start
 PROFILE_STARTUP=false
 if $PROFILE_STARTUP; then
@@ -132,3 +134,6 @@ fi
 for cmd in kubectl helm; do
   (( $+commands[$cmd] )) && source <($cmd completion zsh)
 done
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
