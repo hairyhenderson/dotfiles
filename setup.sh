@@ -12,3 +12,6 @@ ln -s $HOME/.dotfiles/.rcrc $HOME/.rcrc || true
 # set up symlinks
 cd $HOME
 rcup 
+
+# Other setup
+ln $HOME/.dotfiles/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
