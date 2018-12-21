@@ -137,3 +137,9 @@ done
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+if [ -e /usr/local/bin/code ]; then
+  EXTFILE=${DOTFILES_HOME}/vscode/install_extensions.sh
+  echo '#!/bin/sh' > ${EXTFILE}
+  chmod 755 ${EXTFILE}
+  code --list-extensions | xargs -L 1 echo code --install-extension >> ${EXTFILE}
+fi
