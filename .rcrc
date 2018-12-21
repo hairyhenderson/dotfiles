@@ -1,1 +1,1 @@
-EXCLUDES="*:*.terminal .dotfiles:themes .dotfiles:README.md .dotfiles:setup.sh .dotfiles:antigen"
+EXCLUDES="*:*.terminal .dotfiles:iTerm2 .dotfiles:themes .dotfiles:README.md .dotfiles:setup.sh .dotfiles:antigen"
