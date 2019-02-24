@@ -36,6 +36,8 @@ export EDITOR="vim"
 
 export DOCKER_BUILDKIT=1
 
+export EJSON_KEYDIR=/keybase/private/dhenderson/ejson
+
 # Set this to true to profile the start
 PROFILE_STARTUP=false
 if $PROFILE_STARTUP; then
