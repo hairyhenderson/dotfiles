@@ -16,3 +16,8 @@ rcup
 # Other setup
 rm $HOME/Library/Application\ Support/Code/User/settings.json
 ln $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+
+if [[ -d $HOME/Library/Application\ Support/iTerm2/DynamicProfiles ]]; then
+  rm -rf $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
+fi
+ln -s $HOME/.dotfiles/iTerm2/DynamicProfiles $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
