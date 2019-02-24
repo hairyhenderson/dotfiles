@@ -29,6 +29,7 @@ code --install-extension robertohuertasm.vscode-icons
 code --install-extension ryanluker.vscode-coverage-gutters
 code --install-extension slevesque.vscode-hexdump
 code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension vsciot-vscode.vscode-arduino
 code --install-extension wholroyd.HCL
 code --install-extension zhuangtongfa.Material-theme
 code --install-extension zxh404.vscode-proto3
