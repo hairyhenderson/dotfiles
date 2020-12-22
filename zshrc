@@ -20,8 +20,10 @@ fi
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 pathappend "$HOME/.rvm/bin"
 pathappend "/usr/local/opt/go/libexec/bin"
+pathappend "/usr/local/go/libexec/bin"
 pathinsert "$HOME/bin"
 pathinsert "$HOME/Library/Python/2.7/bin"
+pathinsert "/usr/local/opt/python/libexec/bin"
 pathinsert "/usr/local/opt/coreutils/libexec/gnubin"
 pathinsert "/usr/local/opt/gnu-sed/libexec/gnubin"
 pathinsert "/usr/local/opt/gettext/bin"
@@ -129,8 +131,9 @@ alias ls='ls --color=auto -G'
 
 if [ -d ~/bin/google-cloud-sdk/ ]; then
   source ~/bin/google-cloud-sdk/completion.zsh.inc
+  source ~/bin/google-cloud-sdk/path.zsh.inc
 
-  eval $(minikube completion zsh)
+  #eval $(minikube completion zsh)
 fi
 
 for cmd in kubectl helm; do

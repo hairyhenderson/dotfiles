@@ -3,6 +3,7 @@
     {
       "Name": "Default",
       "Guid": "CCB549AA-5302-464D-A18C-E580554CD322",
+      "Badge Text": "",
       "Working Directory": "/Users/dee",
       "Prompt Before Closing 2": 2,
       "Selected Text Color": {
@@ -23,6 +24,7 @@
         "Red Component": 0.73333334922790527
       },
       "Right Option Key Sends": 0,
+      "Show Status Bar": true,
       "Character Encoding": 4,
       "Selection Color": {
         "Green Component": 0.8353000283241272,
@@ -45,6 +47,118 @@
       "Jobs to Ignore": ["rlogin", "ssh", "slogin", "telnet"],
       "Scrollback With Status Bar": false,
       "Scrollback Lines": 0,
+      "Status Bar Layout": {
+        "components": [
+          {
+            "class": "iTermStatusBarClockComponent",
+            "configuration": {
+              "knobs": {
+                "base: priority": 5,
+                "shared text color": {
+                  "Red Component": 0.90000000000000002,
+                  "Color Space": "sRGB",
+                  "Blue Component": 0.63,
+                  "Alpha Component": 1,
+                  "Green Component": 0.63
+                },
+                "base: compression resistance": 1,
+                "format": "yyyy-MM-dd HH:mm"
+              },
+              "layout advanced configuration dictionary value": {
+                "font": ".AppleSystemUIFont 12",
+                "algorithm": 1
+              }
+            }
+          },
+          {
+            "class": "iTermStatusBarCPUUtilizationComponent",
+            "configuration": {
+              "knobs": {
+                "base: priority": 5,
+                "base: compression resistance": 1,
+                "shared text color": {
+                  "Red Component": 0.84599999999999997,
+                  "Color Space": "sRGB",
+                  "Blue Component": 0.63,
+                  "Alpha Component": 1,
+                  "Green Component": 0.90000000000000002
+                }
+              },
+              "layout advanced configuration dictionary value": {
+                "font": ".AppleSystemUIFont 12",
+                "algorithm": 1
+              }
+            }
+          },
+          {
+            "class": "iTermStatusBarMemoryUtilizationComponent",
+            "configuration": {
+              "knobs": {
+                "base: priority": 5,
+                "base: compression resistance": 1,
+                "shared text color": {
+                  "Red Component": 0.63,
+                  "Color Space": "sRGB",
+                  "Blue Component": 0.7380000000000001,
+                  "Alpha Component": 1,
+                  "Green Component": 0.90000000000000002
+                }
+              },
+              "layout advanced configuration dictionary value": {
+                "font": ".AppleSystemUIFont 12",
+                "algorithm": 1
+              }
+            }
+          },
+          {
+            "class": "iTermStatusBarNetworkUtilizationComponent",
+            "configuration": {
+              "knobs": {
+                "base: priority": 5,
+                "base: compression resistance": 1,
+                "shared text color": {
+                  "Red Component": 0.63,
+                  "Color Space": "sRGB",
+                  "Blue Component": 0.90000000000000002,
+                  "Alpha Component": 1,
+                  "Green Component": 0.73799999999999988
+                }
+              },
+              "layout advanced configuration dictionary value": {
+                "font": ".AppleSystemUIFont 12",
+                "algorithm": 1
+              }
+            }
+          },
+          {
+            "class": "iTermStatusBarGitComponent",
+            "configuration": {
+              "knobs": {
+                "maxwidth": 1.7976931348623157e308,
+                "iTermStatusBarGitComponentPollingIntervalKey": 2,
+                "base: priority": 5,
+                "shared text color": {
+                  "Red Component": 0.8460000000000002,
+                  "Color Space": "sRGB",
+                  "Blue Component": 0.90000000000000002,
+                  "Alpha Component": 1,
+                  "Green Component": 0.63
+                },
+                "base: compression resistance": 1,
+                "minwidth": 0
+              },
+              "layout advanced configuration dictionary value": {
+                "font": ".AppleSystemUIFont 12",
+                "algorithm": 1
+              }
+            }
+          }
+        ],
+        "advanced configuration": {
+          "font": ".AppleSystemUIFont 12",
+          "algorithm": 1
+        }
+      },
       "Hide After Opening": false,
       "Prevent Opening in a Tab": false,
       "Flashing Bell": true,
