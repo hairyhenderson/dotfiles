@@ -17,7 +17,12 @@ if [ -d "$HOME/gocode" ]; then
 else
   export GOPATH="$HOME/go"
 fi
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+if [ -x "/usr/libexec/path_helper" ]; then
+  eval "$(/usr/libexec/path_helper)"
+else
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+fi
 pathappend "$HOME/.rvm/bin"
 pathappend "/usr/local/opt/go/libexec/bin"
 pathappend "/usr/local/go/libexec/bin"
@@ -85,18 +90,21 @@ if [ -d ~/.nvm ]; then
   source $nvm_script
 fi
 
-source $DOTFILES_HOME/antigen/antigen.zsh
-
+# oh-my-zsh setup
 COMPLETION_WAITING_DOTS="true"
 
-antigen use oh-my-zsh
+export ZSH="$DOTFILES_HOME/oh-my-zsh"
+export ZSH_CUSTOM="$DOTFILES_HOME"
+ZSH_THEME="dave"
 
-for bundle in git docker node kubectl; do
-  (( $+commands[$bundle] )) && antigen bundle $bundle
-done
+plugins=(
+  git
+  docker
+  node
+  kubectl
+)
 
-antigen theme $DOTFILES_HOME/themes dave
-antigen apply
+source $ZSH/oh-my-zsh.sh
 
 # installed by the `awscli` homebrew package
 if [ -f /usr/local/share/zsh/site-functions/_aws ]; then
@@ -132,6 +140,11 @@ alias ls='ls --color=auto -G'
 if [ -d ~/bin/google-cloud-sdk/ ]; then
   source ~/bin/google-cloud-sdk/completion.zsh.inc
   source ~/bin/google-cloud-sdk/path.zsh.inc
+
+  #eval $(minikube completion zsh)
+elif [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/ ]; then
+  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
   #eval $(minikube completion zsh)
 fi
