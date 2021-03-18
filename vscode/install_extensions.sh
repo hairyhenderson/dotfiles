@@ -18,6 +18,7 @@ code --install-extension GitHub.vscode-codeql
 code --install-extension GitHub.vscode-pull-request-github
 code --install-extension golang.go
 code --install-extension hashicorp.terraform
+code --install-extension hbenl.vscode-mocha-test-adapter
 code --install-extension hbenl.vscode-test-explorer
 code --install-extension heptio.jsonnet
 code --install-extension humao.rest-client
@@ -26,6 +27,7 @@ code --install-extension jock.svg
 code --install-extension kamikillerto.vscode-colorize
 code --install-extension michelemelluso.code-beautifier
 code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-python.python
 code --install-extension ms-toolsai.jupyter
 code --install-extension ms-vscode-remote.remote-containers
