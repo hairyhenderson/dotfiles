@@ -72,6 +72,10 @@ else
   export DOTFILES_HOME=$(dirname `realpath ~/.zshrc`)
 fi
 
+if [ -f "$DOTFILES_HOME/.env" ]; then
+  source $DOTFILES_HOME/.env
+fi
+
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 
 alias ip='ip --color'
