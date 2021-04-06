@@ -159,6 +159,16 @@ done
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Config history late so oh-my-zsh doesn't get in the way
+export HISTFILE=~/.zsh_history
+export HISTSIZE=999999999
+export SAVEHIST=$HISTSIZE
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FCNTL_LOCK
+
+setopt no_autocd
+setopt no_autopushd
+
 if [ -e /usr/local/bin/code ]; then
   EXTFILE=${DOTFILES_HOME}/vscode/install_extensions.sh
   echo '#!/bin/sh' > ${EXTFILE}
