@@ -26,6 +26,7 @@ fi
 pathappend "$HOME/.rvm/bin"
 pathappend "/usr/local/opt/go/libexec/bin"
 pathappend "/usr/local/go/libexec/bin"
+pathappend "/usr/local/opt/mysql-client@5.7/bin"
 pathinsert "$HOME/bin"
 pathinsert "$HOME/Library/Python/2.7/bin"
 pathinsert "/usr/local/opt/python/libexec/bin"
