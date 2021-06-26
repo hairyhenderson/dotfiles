@@ -6,15 +6,20 @@ pushd $HOME/.dotfiles
 git submodule update --init --recursive
 popd
 
-# # Make sure rcm's config is set up
-# ln -s $HOME/.dotfiles/.rcrc $HOME/.rcrc || true
-
 # set up symlinks
-cd $HOME
-RCRC=$HOME/.dotfiles/.rcrc rcup
+function link () {
+  echo "Linking $HOME/.dotfiles/$1 to $HOME/.$1..."
+  ln -s $HOME/.dotfiles/$1 $HOME/.$1
+}
 
-# Other setup
+link zshrc
+link vimrc
+link vim
+
+# macOS-specific setup
 if [ $(uname -o) = "Darwin" ]; then
+  link vscode
+
   rm $HOME/Library/Application\ Support/Code/User/settings.json
   ln $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
 
