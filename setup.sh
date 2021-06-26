@@ -14,8 +14,10 @@ cd $HOME
 rcup 
 
 # Other setup
-rm $HOME/Library/Application\ Support/Code/User/settings.json
-ln $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+if [ $(uname -o) = "Darwin" ]; then
+  rm $HOME/Library/Application\ Support/Code/User/settings.json
+  ln $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+fi
 
 if [[ -d $HOME/Library/Application\ Support/iTerm2/DynamicProfiles ]]; then
   rm -rf $HOME/Library/Application\ Support/iTerm2/DynamicProfiles
