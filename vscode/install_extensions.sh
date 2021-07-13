@@ -15,6 +15,7 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension felipe.nasc-touchbar
 code --install-extension formulahendry.github-actions
 code --install-extension GitHub.codespaces
+code --install-extension GitHub.copilot
 code --install-extension GitHub.vscode-codeql
 code --install-extension GitHub.vscode-pull-request-github
 code --install-extension golang.go

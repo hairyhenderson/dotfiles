@@ -1,5 +1,4 @@
 {
-    "workbench.iconTheme": "vscode-icons",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -7,10 +6,6 @@
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
     },
     "nasc-touchbar.goToDefinition": true,
     "nasc-touchbar.addCursorBelow": false,
@@ -36,10 +31,8 @@
     "nasc-touchbar.blockComment": false,
     "nasc-touchbar.commentLine": false,
     "editor.renderWhitespace": "boundary",
-    "window.zoomLevel": 0,
     "explorer.confirmDragAndDrop": false,
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": false,
+    "go.useLanguageServer": true,
     "files.insertFinalNewline": true,
     "files.associations": {
         "*.bats": "shellscript",
@@ -69,7 +62,6 @@
     "vsicons.dontShowNewVersionMessage": true,
     "go.coverOnSingleTest": true,
     "extensions.ignoreRecommendations": false,
-    "gitlens.historyExplorer.enabled": true,
     "[yaml]": {},
     "workbench.editor.closeEmptyGroups": false,
     "terminal.integrated.drawBoldTextInBrightColors": false,
@@ -96,13 +88,20 @@
         "typings",
         "**/vendor/**" 
     ],
-    "cSpell.language": "en-GB",
+    "cSpell.language": "en-CA",
     "cSpell.allowCompoundWords": true,
     "cSpell.enabled": false,
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
-    "colorize.ignore_search_variables_info": true,
     "arduino.additionalUrls": [
         "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
-    ]
+    ],
+    "editor.rulers": [
+        80,
+    ],
+    "go.coverOnSave": true,
+    "go.lintTool": "golangci-lint",
+    "go.coverageOptions": "showUncoveredCodeOnly",
+    "redhat.telemetry.enabled": false,
+    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.inlineSuggest.enabled": true,
 }
