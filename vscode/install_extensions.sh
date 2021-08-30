@@ -2,6 +2,7 @@
 code --install-extension adambaldwin.vscode-nsp
 code --install-extension aeschli.vscode-css-formatter
 code --install-extension akmittal.hugofy
+code --install-extension Antyos.openscad
 code --install-extension be5invis.toml
 code --install-extension bierner.markdown-mermaid
 code --install-extension carolynvs.dep
