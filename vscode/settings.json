@@ -116,8 +116,11 @@
         "*": false,
         "yaml": false,
         "plaintext": false,
-        "markdown": false,
+        "markdown": true,
         "go": true,
-        "scad": true
+        "scad": true,
+        "dockerfile": true,
+        "shellscript": true,
+        "javascript": true
     },
 }
