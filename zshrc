@@ -107,6 +107,7 @@ plugins=(
   docker
   node
   kubectl
+  kubectx
 )
 
 source $ZSH/oh-my-zsh.sh
