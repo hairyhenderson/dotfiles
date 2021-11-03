@@ -23,7 +23,6 @@ code --install-extension golang.go
 code --install-extension hashicorp.terraform
 code --install-extension hbenl.vscode-mocha-test-adapter
 code --install-extension hbenl.vscode-test-explorer
-code --install-extension heptio.jsonnet
 code --install-extension humao.rest-client
 code --install-extension James-Yu.latex-workshop
 code --install-extension jock.svg
@@ -50,6 +49,7 @@ code --install-extension oderwat.indent-rainbow
 code --install-extension redhat.vscode-commons
 code --install-extension redhat.vscode-yaml
 code --install-extension ryanluker.vscode-coverage-gutters
+code --install-extension Sebbia.jsonnetng
 code --install-extension slevesque.vscode-hexdump
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension vsciot-vscode.vscode-arduino
