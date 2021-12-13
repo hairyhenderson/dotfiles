@@ -45,6 +45,8 @@ code --install-extension ms-vscode.azure-account
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-vscode.test-adapter-converter
 code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension mtxr.sqltools
+code --install-extension mtxr.sqltools-driver-mysql
 code --install-extension oderwat.indent-rainbow
 code --install-extension redhat.vscode-commons
 code --install-extension redhat.vscode-yaml
