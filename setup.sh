@@ -9,7 +9,7 @@ popd
 # set up symlinks
 function link () {
   echo "Linking $HOME/.dotfiles/$1 to $HOME/.$1..."
-  ln -s $HOME/.dotfiles/$1 $HOME/.$1
+  ln -fs $HOME/.dotfiles/$1 $HOME/.$1
 }
 
 link zshrc
@@ -20,7 +20,7 @@ link vim
 if [ $(uname -o) = "Darwin" ]; then
   link vscode
 
-  rm $HOME/Library/Application\ Support/Code/User/settings.json
+  rm -f $HOME/Library/Application\ Support/Code/User/settings.json
   ln $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
 
   if [[ -d $HOME/Library/Application\ Support/iTerm2/DynamicProfiles ]]; then

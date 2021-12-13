@@ -23,16 +23,22 @@ if [ -x "/usr/libexec/path_helper" ]; then
 else
   export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 fi
+
+if [ -x /opt/homebrew/bin/brew ]; then
+  export HOMEBREW_PREFIX=/opt/homebrew
+fi
+
 pathappend "$HOME/.rvm/bin"
-pathappend "/usr/local/opt/go/libexec/bin"
+pathinsert "$HOMEBREW_PREFIX/bin"
+pathappend "$HOMEBREW_PREFIX/opt/go/libexec/bin"
 pathappend "/usr/local/go/libexec/bin"
-pathappend "/usr/local/opt/mysql-client@5.7/bin"
+pathappend "$HOMEBREW_PREFIX/opt/mysql-client@5.7/bin"
 pathinsert "$HOME/bin"
 pathinsert "$HOME/Library/Python/2.7/bin"
-pathinsert "/usr/local/opt/python/libexec/bin"
-pathinsert "/usr/local/opt/coreutils/libexec/gnubin"
-pathinsert "/usr/local/opt/gnu-sed/libexec/gnubin"
-pathinsert "/usr/local/opt/gettext/bin"
+pathinsert "$HOMEBREW_PREFIX/opt/python/libexec/bin"
+pathinsert "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
+pathinsert "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"
+pathinsert "$HOMEBREW_PREFIX/opt/gettext/bin"
 pathinsert "/usr/local/go/bin"
 pathinsert "$HOME/bin/docker"
 pathinsert "$HOME/bin/packer"
@@ -87,8 +93,8 @@ if [ -d ~/.nvm ]; then
   local nvm_script
   if [ -f $NVM_DIR/nvm.sh ]; then
     nvm_script=$NVM_DIR/nvm.sh
-  elif [ -f /usr/local/opt/nvm/nvm.sh ]; then
-    nvm_script=/usr/local/opt/nvm/nvm.sh
+  elif [ -f $HOMEBREW_PREFIX/opt/nvm/nvm.sh ]; then
+    nvm_script=$HOMEBREW_PREFIX/opt/nvm/nvm.sh
   elif [ -x "$(which brew)" ]; then
     nvm_script=$(brew --prefix nvm)/nvm.sh
   fi
@@ -113,8 +119,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # installed by the `awscli` homebrew package
-if [ -f /usr/local/share/zsh/site-functions/_aws ]; then
-  source /usr/local/share/zsh/site-functions/_aws
+if [ -f $HOMEBREW_PREFIX/share/zsh/site-functions/_aws ]; then
+  source $HOMEBREW_PREFIX/share/zsh/site-functions/_aws
 fi
 
 if [ -d ~/.nvm ]; then
@@ -148,9 +154,9 @@ if [ -d ~/bin/google-cloud-sdk/ ]; then
   source ~/bin/google-cloud-sdk/path.zsh.inc
 
   #eval $(minikube completion zsh)
-elif [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/ ]; then
-  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+elif [ -d $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/ ]; then
+  source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
   #eval $(minikube completion zsh)
 fi
