@@ -17,12 +17,9 @@ code --install-extension felipe.nasc-touchbar
 code --install-extension formulahendry.github-actions
 code --install-extension GitHub.codespaces
 code --install-extension GitHub.copilot
-code --install-extension GitHub.vscode-codeql
 code --install-extension GitHub.vscode-pull-request-github
 code --install-extension golang.go
 code --install-extension hashicorp.terraform
-code --install-extension hbenl.vscode-mocha-test-adapter
-code --install-extension hbenl.vscode-test-explorer
 code --install-extension humao.rest-client
 code --install-extension James-Yu.latex-workshop
 code --install-extension jock.svg
