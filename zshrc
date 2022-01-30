@@ -26,6 +26,8 @@ fi
 
 if [ -x /opt/homebrew/bin/brew ]; then
   export HOMEBREW_PREFIX=/opt/homebrew
+else
+  export HOMEBREW_PREFIX=$(brew config | grep ^HOMEBREW_PREFIX | cut -f2 -d\ )
 fi
 
 pathappend "$HOME/.rvm/bin"
