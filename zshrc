@@ -116,6 +116,7 @@ plugins=(
   node
   kubectl
   kubectx
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -185,3 +186,14 @@ if [ -e /usr/local/bin/code ]; then
   chmod 755 ${EXTFILE}
   code --list-extensions | xargs -L 1 echo code --install-extension >> ${EXTFILE}
 fi
+
+############## BEGIN LOKI-SHELL #####################
+
+# NOTE when changing the Loki URL, also remember to change the promtail config: ~/.loki-shell/config/promtail-logging-config.yaml
+
+# disabled for now - logcli output is ugly
+#export LOKI_URL="http://localhost:4100"
+
+#[ -f ~/.loki-shell/shell/loki-shell.zsh ] && source ~/.loki-shell/shell/loki-shell.zsh
+
+############## END LOKI-SHELL   #####################
