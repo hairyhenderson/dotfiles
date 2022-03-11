@@ -9,6 +9,7 @@ code --install-extension carolynvs.dep
 code --install-extension casualjim.gotemplate
 code --install-extension chenxsan.vscode-standardjs
 code --install-extension dbaeumer.vscode-eslint
+code --install-extension dongfg.vscode-beancount-formatter
 code --install-extension donjayamanne.githistory
 code --install-extension eamodio.gitlens
 code --install-extension efbenson.scad
@@ -18,6 +19,7 @@ code --install-extension formulahendry.github-actions
 code --install-extension GitHub.codespaces
 code --install-extension GitHub.copilot
 code --install-extension GitHub.vscode-pull-request-github
+code --install-extension gitkraken.gitkraken-authentication
 code --install-extension golang.go
 code --install-extension Grafana.vscode-jsonnet
 code --install-extension hashicorp.terraform
@@ -25,6 +27,7 @@ code --install-extension humao.rest-client
 code --install-extension James-Yu.latex-workshop
 code --install-extension jock.svg
 code --install-extension kamikillerto.vscode-colorize
+code --install-extension Lencerf.beancount
 code --install-extension michelemelluso.code-beautifier
 code --install-extension mindaro-dev.file-downloader
 code --install-extension ms-azuretools.vscode-docker
