@@ -11,34 +11,14 @@ function box_name {
     hostname -s
 }
 
-function preso {
-	if [[ -z "$PRESO_MODE" ]]; then
-		export PRESO_MODE=yes
-		clear
-	else
-		unset PRESO_MODE
-	fi
-}
-
 function prompt {
-	if [[ -z $PRESO_MODE ]]; then
-		current_dir="${PWD/#$HOME/~}"
-		git_info="$(git_prompt_info)"
-		ret_status="%(?::%{$fg_bold[red]%})"
-		prompt_char="${ret_status}$(prompt_char)"
+	current_dir="${PWD/#$HOME/~}"
+	git_info="$(git_prompt_info)"
+	ret_status="%(?::%{$fg_bold[red]%})"
+	prompt_char="${ret_status}$(prompt_char)"
 
-		echo -n "%{$FG[239]%}╭─(%{$FG[040]%}%n%{$reset_color%}%{$FG[239]%})@%{$reset_color%}%{$FG[033]%}$(box_name)%{$reset_color%}%{$FG[239]%}:%{$reset_color%}%{$terminfo[bold]$FG[226]%}${current_dir}%{$reset_color%}${git_info}
+	echo -n "%{$FG[239]%}╭─(%{$FG[040]%}%n%{$reset_color%}%{$FG[239]%})@%{$reset_color%}%{$FG[033]%}$(box_name)%{$reset_color%}%{$FG[239]%}:%{$reset_color%}%{$terminfo[bold]$FG[226]%}${current_dir}%{$reset_color%}${git_info}
 %{$FG[239]%}╰─${prompt_char}%{$reset_color%} "
-	else
-		setopt extendedglob
-		if [[ -n Dockerfile*(#qN) ]]; then
-			prompt_char="%(?:🐳:💥%{$fg_bold[red]%})"
-		else
-			prompt_char="%(?:🎬:💥%{$fg_bold[red]%})"
-		fi
-		echo -n "%{$FG[239]%}${prompt_char} \$%{$reset_color%} "
-		unsetopt extendedglob
-	fi
 }
 
 PROMPT='$(prompt)'

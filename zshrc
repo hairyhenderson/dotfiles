@@ -47,6 +47,7 @@ pathinsert "$HOME/bin/packer"
 pathinsert "$HOME/bin/terraform"
 pathinsert "$HOME/bin/google-cloud-sdk/bin"
 pathinsert "$GOPATH/bin"
+pathinsert "$HOME/bin"
 
 export EDITOR="vim"
 
@@ -175,7 +176,10 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
 setopt HIST_FCNTL_LOCK
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
 
 setopt no_autocd
 setopt no_autopushd

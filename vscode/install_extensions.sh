@@ -18,8 +18,8 @@ code --install-extension felipe.nasc-touchbar
 code --install-extension formulahendry.github-actions
 code --install-extension GitHub.codespaces
 code --install-extension GitHub.copilot
+code --install-extension GitHub.copilot-labs
 code --install-extension GitHub.vscode-pull-request-github
-code --install-extension gitkraken.gitkraken-authentication
 code --install-extension golang.go
 code --install-extension Grafana.vscode-jsonnet
 code --install-extension hashicorp.terraform
