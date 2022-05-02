@@ -32,6 +32,7 @@ fi
 
 pathappend "$HOME/.rvm/bin"
 pathinsert "$HOMEBREW_PREFIX/bin"
+pathinsert "$HOMEBREW_PREFIX/sbin"
 pathappend "$HOMEBREW_PREFIX/opt/go/libexec/bin"
 pathappend "/usr/local/go/libexec/bin"
 pathappend "$HOMEBREW_PREFIX/opt/mysql-client@5.7/bin"
