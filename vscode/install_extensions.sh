@@ -22,6 +22,7 @@ code --install-extension GitHub.copilot-labs
 code --install-extension GitHub.vscode-pull-request-github
 code --install-extension golang.go
 code --install-extension Grafana.vscode-jsonnet
+code --install-extension hashicorp.hcl
 code --install-extension hashicorp.terraform
 code --install-extension humao.rest-client
 code --install-extension James-Yu.latex-workshop
@@ -44,6 +45,7 @@ code --install-extension ms-vscode-remote.remote-wsl
 code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension ms-vscode.azure-account
 code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.live-server
 code --install-extension ms-vscode.test-adapter-converter
 code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension mtxr.sqltools
@@ -57,6 +59,5 @@ code --install-extension slevesque.vscode-hexdump
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension vsciot-vscode.vscode-arduino
 code --install-extension vscode-icons-team.vscode-icons
-code --install-extension wholroyd.HCL
 code --install-extension zhuangtongfa.material-theme
 code --install-extension zxh404.vscode-proto3

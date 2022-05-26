@@ -170,6 +170,8 @@ for cmd in kubectl helm; do
   (( $+commands[$cmd] )) && source <($cmd completion zsh)
 done
 
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Config history late so oh-my-zsh doesn't get in the way
