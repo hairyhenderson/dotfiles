@@ -158,6 +158,8 @@ if [ -d ~/bin/google-cloud-sdk/ ]; then
   source ~/bin/google-cloud-sdk/completion.zsh.inc
   source ~/bin/google-cloud-sdk/path.zsh.inc
 
+  export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
   #eval $(minikube completion zsh)
 elif [ -d $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/ ]; then
   source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
