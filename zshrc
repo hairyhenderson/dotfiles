@@ -49,6 +49,7 @@ pathinsert "$HOME/bin/terraform"
 pathinsert "$HOME/bin/google-cloud-sdk/bin"
 pathinsert "$GOPATH/bin"
 pathinsert "$HOME/bin"
+pathinsert "$HOME/go/src/github.com/grafana/hosted-grafana/bin"
 
 export EDITOR="vim"
 
