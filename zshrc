@@ -177,6 +177,19 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# 1Password AWS CLI plugin
+if [ -f $HOME/.config/op/plugins.sh ]; then
+  # not sourcing for now - it's rare that I actually want to use this profile
+  #source $HOME/.config/op/plugins.sh
+fi
+
+if [ -f $HOME/.1password/agent.sock ]; then
+  export SSH_AUTH_SOCK=~/.1password/agent.sock
+fi
+
+# for running 'go test' against a remote Windows VM
+export GO_REMOTE_WINDOWS="User@192.168.2.55"
+
 # Config history late so oh-my-zsh doesn't get in the way
 export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999

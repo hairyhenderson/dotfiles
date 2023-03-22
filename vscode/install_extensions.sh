@@ -14,7 +14,6 @@ code --install-extension dbaeumer.vscode-eslint
 code --install-extension dongfg.vscode-beancount-formatter
 code --install-extension donjayamanne.githistory
 code --install-extension eamodio.gitlens
-code --install-extension efbenson.scad
 code --install-extension esbenp.prettier-vscode
 code --install-extension felipe.nasc-touchbar
 code --install-extension formulahendry.github-actions
@@ -30,6 +29,7 @@ code --install-extension humao.rest-client
 code --install-extension James-Yu.latex-workshop
 code --install-extension jock.svg
 code --install-extension kamikillerto.vscode-colorize
+code --install-extension Leathong.openscad-language-support
 code --install-extension Lencerf.beancount
 code --install-extension michelemelluso.code-beautifier
 code --install-extension mindaro-dev.file-downloader
@@ -46,8 +46,11 @@ code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension ms-vscode.azure-account
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-vscode.live-server
+code --install-extension ms-vscode.makefile-tools
 code --install-extension ms-vscode.remote-explorer
+code --install-extension ms-vscode.remote-server
 code --install-extension ms-vscode.test-adapter-converter
+code --install-extension ms-vscode.vscode-serial-monitor
 code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension mtxr.sqltools
 code --install-extension mtxr.sqltools-driver-mysql
@@ -56,6 +59,7 @@ code --install-extension redhat.vscode-commons
 code --install-extension redhat.vscode-yaml
 code --install-extension ryanluker.vscode-coverage-gutters
 code --install-extension ryu1kn.edit-with-shell
+code --install-extension ryu1kn.partial-diff
 code --install-extension slevesque.vscode-hexdump
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension vsciot-vscode.vscode-arduino
