@@ -183,10 +183,6 @@ if [ -f $HOME/.config/op/plugins.sh ]; then
   #source $HOME/.config/op/plugins.sh
 fi
 
-if [ -f $HOME/.1password/agent.sock ]; then
-  export SSH_AUTH_SOCK=~/.1password/agent.sock
-fi
-
 # for running 'go test' against a remote Windows VM
 export GO_REMOTE_WINDOWS="User@192.168.2.55"
 
