@@ -9,7 +9,6 @@ code --install-extension bierner.markdown-mermaid
 code --install-extension Cardinal90.multi-cursor-case-preserve
 code --install-extension carolynvs.dep
 code --install-extension casualjim.gotemplate
-code --install-extension chenxsan.vscode-standardjs
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension dongfg.vscode-beancount-formatter
 code --install-extension donjayamanne.githistory
@@ -31,6 +30,7 @@ code --install-extension jock.svg
 code --install-extension kamikillerto.vscode-colorize
 code --install-extension Leathong.openscad-language-support
 code --install-extension Lencerf.beancount
+code --install-extension matthewpi.caddyfile-support
 code --install-extension michelemelluso.code-beautifier
 code --install-extension mindaro-dev.file-downloader
 code --install-extension ms-azuretools.vscode-docker
@@ -45,6 +45,7 @@ code --install-extension ms-vscode-remote.remote-wsl
 code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension ms-vscode.azure-account
 code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.hexeditor
 code --install-extension ms-vscode.live-server
 code --install-extension ms-vscode.makefile-tools
 code --install-extension ms-vscode.remote-explorer
@@ -60,7 +61,6 @@ code --install-extension redhat.vscode-yaml
 code --install-extension ryanluker.vscode-coverage-gutters
 code --install-extension ryu1kn.edit-with-shell
 code --install-extension ryu1kn.partial-diff
-code --install-extension slevesque.vscode-hexdump
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension vsciot-vscode.vscode-arduino
 code --install-extension vscode-icons-team.vscode-icons

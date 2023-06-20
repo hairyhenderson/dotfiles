@@ -188,13 +188,15 @@ export GO_REMOTE_WINDOWS="User@192.168.2.55"
 
 # Config history late so oh-my-zsh doesn't get in the way
 export HISTFILE=~/.zsh_history
-export HISTSIZE=999999999
+export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_DUPS
 setopt HIST_FCNTL_LOCK
 setopt EXTENDED_HISTORY
-setopt INC_APPEND_HISTORY
+setopt INC_APPEND_HISTORY_TIME
 
 setopt no_autocd
 setopt no_autopushd
@@ -211,8 +213,8 @@ fi
 # NOTE when changing the Loki URL, also remember to change the promtail config: ~/.loki-shell/config/promtail-logging-config.yaml
 
 # disabled for now - logcli output is ugly
-#export LOKI_URL="http://localhost:4100"
+export LOKI_URL="http://localhost:4110"
 
-#[ -f ~/.loki-shell/shell/loki-shell.zsh ] && source ~/.loki-shell/shell/loki-shell.zsh
+[ -f ~/.loki-shell/shell/loki-shell.zsh ] && source ~/.loki-shell/shell/loki-shell.zsh
 
 ############## END LOKI-SHELL   #####################
