@@ -50,6 +50,8 @@ pathinsert "$HOME/bin/google-cloud-sdk/bin"
 pathinsert "$GOPATH/bin"
 pathinsert "$HOME/bin"
 pathinsert "$HOME/go/src/github.com/grafana/hosted-grafana/bin"
+pathinsert "$HOMEBREW_PREFIX/opt/util-linux/bin"
+#pathinsert "$HOMEBREW_PREFIX/opt/util-linux/sbin"
 
 export EDITOR="vim"
 
