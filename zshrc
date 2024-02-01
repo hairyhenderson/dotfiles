@@ -52,6 +52,7 @@ pathinsert "$HOME/bin"
 pathinsert "$HOME/go/src/github.com/grafana/hosted-grafana/bin"
 pathinsert "$HOMEBREW_PREFIX/opt/util-linux/bin"
 #pathinsert "$HOMEBREW_PREFIX/opt/util-linux/sbin"
+pathinsert "/usr/local/opt/curl/bin"
 
 export EDITOR="vim"
 
@@ -214,7 +215,6 @@ fi
 
 # NOTE when changing the Loki URL, also remember to change the promtail config: ~/.loki-shell/config/promtail-logging-config.yaml
 
-# disabled for now - logcli output is ugly
 export LOKI_URL="http://localhost:4110"
 
 [ -f ~/.loki-shell/shell/loki-shell.zsh ] && source ~/.loki-shell/shell/loki-shell.zsh
