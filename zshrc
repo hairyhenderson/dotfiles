@@ -59,7 +59,8 @@ export EDITOR="vim"
 
 export DOCKER_BUILDKIT=1
 
-export EJSON_KEYDIR=/keybase/private/dhenderson/ejson
+#export EJSON_KEYDIR=/keybase/private/dhenderson/ejson
+
 
 # Set this to true to profile the start
 PROFILE_STARTUP=false
@@ -82,6 +83,7 @@ if [[ ${OS} == 'Darwin' ]]; then
   alias find=gfind
   alias mktemp=gmktemp
 
+  # tailscale CLI
   alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
   # grealpath is installed by the `coreutils` homebrew package
@@ -134,6 +136,10 @@ source $ZSH/oh-my-zsh.sh
 if [ -f $HOMEBREW_PREFIX/share/zsh/site-functions/_aws ]; then
   source $HOMEBREW_PREFIX/share/zsh/site-functions/_aws
 fi
+
+# temporary fix for https://forum.cursor.com/t/alt-option-with-right-left-for-cursor-movement-on-terminal/135393/6
+bindkey "\e[1;3D" backward-word
+bindkey "\e[1;3C" forward-word
 
 if [ -d ~/.nvm ]; then
   # call nvm use automatically whenever you enter a directory that contains an .nvmrc file 
