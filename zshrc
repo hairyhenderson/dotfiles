@@ -53,6 +53,7 @@ pathinsert "$HOME/go/src/github.com/grafana/hosted-grafana/bin"
 pathinsert "$HOMEBREW_PREFIX/opt/util-linux/bin"
 #pathinsert "$HOMEBREW_PREFIX/opt/util-linux/sbin"
 pathinsert "/usr/local/opt/curl/bin"
+pathinsert "$HOME/.local/bin"
 
 export EDITOR="vim"
 
@@ -80,6 +81,8 @@ if [[ ${OS} == 'Darwin' ]]; then
   # gfind is installed by the `findutils` homebrew package
   alias find=gfind
   alias mktemp=gmktemp
+
+  alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
   # grealpath is installed by the `coreutils` homebrew package
   export DOTFILES_HOME=$(dirname `grealpath ~/.zshrc`)
@@ -214,8 +217,8 @@ fi
 ############## BEGIN LOKI-SHELL #####################
 
 # NOTE when changing the Loki URL, also remember to change the promtail config: ~/.loki-shell/config/promtail-logging-config.yaml
-
-export LOKI_URL="http://localhost:4110"
+# this should be 127.0.0.1, not localhost, because sometimes localhost resolves to an IPv6 address, and the lookup fails
+export LOKI_URL="http://127.0.0.1:4110"
 
 [ -f ~/.loki-shell/shell/loki-shell.zsh ] && source ~/.loki-shell/shell/loki-shell.zsh
 
