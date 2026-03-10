@@ -1,3 +1,4 @@
+eval "$(~/.local/bin/agent shell-integration zsh)"
 # convenience functions to insert/append to the path, while not polluting it with
 # nonexistant paths on systems where they don't exist
 function pathinsert () {
@@ -229,3 +230,11 @@ export LOKI_URL="http://127.0.0.1:4110"
 [ -f ~/.loki-shell/shell/loki-shell.zsh ] && source ~/.loki-shell/shell/loki-shell.zsh
 
 ############## END LOKI-SHELL   #####################
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/Users/hairyhenderson/.bun/_bun" ] && source "/Users/hairyhenderson/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
