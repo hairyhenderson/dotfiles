@@ -1,4 +1,13 @@
-eval "$(~/.local/bin/agent shell-integration zsh)"
+# Set this to true (or pass via env) to profile startup
+: ${PROFILE_STARTUP:=false}
+if $PROFILE_STARTUP; then
+  zmodload zsh/datetime
+  setopt promptsubst
+  PS4='+$EPOCHREALTIME %N:%i> '
+  exec 3>&2 2>/tmp/startlog.$$
+  setopt xtrace prompt_subst
+fi
+
 # convenience functions to insert/append to the path, while not polluting it with
 # nonexistant paths on systems where they don't exist
 function pathinsert () {
@@ -63,16 +72,6 @@ export DOCKER_BUILDKIT=1
 #export EJSON_KEYDIR=/keybase/private/dhenderson/ejson
 
 
-# Set this to true to profile the start
-PROFILE_STARTUP=false
-if $PROFILE_STARTUP; then
-  zmodload zsh/datetime
-  setopt promptsubst
-  PS4='+$EPOCHREALTIME %N:%i> '
-  exec 3>&2 2>/tmp/startlog.$$
-  setopt xtrace prompt_subst
-fi
-
 OS=$(uname)
 if [[ ${OS} == 'Darwin' ]]; then
   # show/hide hidden files in finder
@@ -89,6 +88,9 @@ if [[ ${OS} == 'Darwin' ]]; then
 
   # grealpath is installed by the `coreutils` homebrew package
   export DOTFILES_HOME=$(dirname `grealpath ~/.zshrc`)
+
+  # shortcut to the obsidian vault path
+  alias cdobs="cd /Users/hairyhenderson/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/hairyhenderson"
 else
   export DOTFILES_HOME=$(dirname `realpath ~/.zshrc`)
 fi
@@ -104,15 +106,27 @@ alias ipb='ip --color --brief'
 
 if [ -d ~/.nvm ]; then
   export NVM_DIR=~/.nvm
-  local nvm_script
+
+  # Locate nvm.sh without sourcing it yet
   if [ -f $NVM_DIR/nvm.sh ]; then
-    nvm_script=$NVM_DIR/nvm.sh
+    _nvm_script=$NVM_DIR/nvm.sh
   elif [ -f $HOMEBREW_PREFIX/opt/nvm/nvm.sh ]; then
-    nvm_script=$HOMEBREW_PREFIX/opt/nvm/nvm.sh
+    _nvm_script=$HOMEBREW_PREFIX/opt/nvm/nvm.sh
   elif [ -x "$(which brew)" ]; then
-    nvm_script=$(brew --prefix nvm)/nvm.sh
+    _nvm_script=$(brew --prefix nvm)/nvm.sh
   fi
-  source $nvm_script
+
+  # Lazy-load: stubs for nvm and common node commands load the real thing on first use
+  _nvm_load() {
+    unset -f nvm node npm npx yarn _nvm_load
+    source "$_nvm_script"
+    unset _nvm_script
+  }
+  nvm()  { _nvm_load; nvm  "$@"; }
+  node() { _nvm_load; node "$@"; }
+  npm()  { _nvm_load; npm  "$@"; }
+  npx()  { _nvm_load; npx  "$@"; }
+  yarn() { _nvm_load; yarn "$@"; }
 fi
 
 # oh-my-zsh setup
@@ -121,6 +135,20 @@ COMPLETION_WAITING_DOTS="true"
 export ZSH="$DOTFILES_HOME/oh-my-zsh"
 export ZSH_CUSTOM="$DOTFILES_HOME"
 ZSH_THEME="dave"
+
+# Speed up compinit by skipping the completion rescan when the dump is <24h old.
+# OMZ calls compinit internally; this stub intercepts that call.
+ZSH_COMPDUMP="${HOME}/.zcompdump"
+compinit() {
+  unfunction compinit
+  autoload -Uz compinit
+  # find returns the file if it's <24h old; empty means stale/missing
+  if [[ -f $ZSH_COMPDUMP && -n $(command find "$ZSH_COMPDUMP" -mtime -1 2>/dev/null) ]]; then
+    compinit -C -d "$ZSH_COMPDUMP" # dump is fresh: skip rescan
+  else
+    compinit -d "$ZSH_COMPDUMP"    # dump is stale or missing: full rescan
+  fi
+}
 
 plugins=(
   git
@@ -160,12 +188,6 @@ if [ -d ~/.nvm ]; then
   add-zsh-hook chpwd load-nvmrc
 fi
 
-if $PROFILE_STARTUP; then
-  unsetopt xtrace
-  # restore stderr to the value saved in FD 3
-  exec 2>&3 3>&-
-fi
-
 alias ls='ls --color=auto -G'
 
 if [ -d ~/bin/google-cloud-sdk/ ]; then
@@ -183,7 +205,14 @@ elif [ -d $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/ ];
 fi
 
 for cmd in kubectl helm; do
-  (( $+commands[$cmd] )) && source <($cmd completion zsh)
+  if (( $+commands[$cmd] )); then
+    cache="${HOME}/.zsh_completion_cache_${cmd}"
+    # Regenerate the cached completion if it's missing or older than the binary
+    if [[ ! -f $cache || $commands[$cmd] -nt $cache ]]; then
+      $cmd completion zsh >| $cache
+    fi
+    source $cache
+  fi
 done
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
@@ -216,9 +245,13 @@ setopt no_autopushd
 
 if [ -e /usr/local/bin/code ]; then
   EXTFILE=${DOTFILES_HOME}/vscode/install_extensions.sh
-  echo '#!/bin/sh' > ${EXTFILE}
-  chmod 755 ${EXTFILE}
-  code --list-extensions | xargs -L 1 echo code --install-extension >> ${EXTFILE}
+  # Only regenerate the Cursor extension export script once per day
+  # find returns the file if it's <24h old; empty means stale/missing
+  if [[ ! -f $EXTFILE || -z $(command find "$EXTFILE" -mtime -1 2>/dev/null) ]]; then
+    echo '#!/bin/sh' > ${EXTFILE}
+    chmod 755 ${EXTFILE}
+    code --list-extensions | xargs -L 1 echo code --install-extension >> ${EXTFILE}
+  fi
 fi
 
 ############## BEGIN LOKI-SHELL #####################
@@ -238,3 +271,8 @@ export LOKI_URL="http://127.0.0.1:4110"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+if $PROFILE_STARTUP; then
+  unsetopt xtrace
+  exec 2>&3 3>&-
+fi
