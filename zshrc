@@ -91,6 +91,8 @@ if [[ ${OS} == 'Darwin' ]]; then
 
   # shortcut to the obsidian vault path
   alias cdobs="cd /Users/hairyhenderson/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/hairyhenderson"
+
+  alias yolo="safehouse claude --dangerously-skip-permissions"
 else
   export DOTFILES_HOME=$(dirname `realpath ~/.zshrc`)
 fi
@@ -190,6 +192,7 @@ if [ -d ~/.nvm ]; then
 fi
 
 alias ls='ls --color=auto -G'
+alias mv='mv -i'
 
 if [ -d ~/bin/google-cloud-sdk/ ]; then
   source ~/bin/google-cloud-sdk/completion.zsh.inc

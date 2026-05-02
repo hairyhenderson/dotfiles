@@ -15,6 +15,7 @@ function link () {
 link zshrc
 link vimrc
 link vim
+link tmux.conf
 
 # Ghostty config (cross-platform)
 mkdir -p $HOME/.config/ghostty
