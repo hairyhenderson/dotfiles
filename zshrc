@@ -159,6 +159,7 @@ plugins=(
   fzf
 )
 
+zstyle ':omz:alpha:lib:git' async-prompt no
 source $ZSH/oh-my-zsh.sh
 
 # installed by the `awscli` homebrew package
@@ -276,3 +277,8 @@ if $PROFILE_STARTUP; then
   unsetopt xtrace
   exec 2>&3 3>&-
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/hairyhenderson/.lmstudio/bin"
+# End of LM Studio CLI section
+

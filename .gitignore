@@ -1,3 +1,4 @@
 .env
 vscode/extensions
 vscode/argv.json
+/vim/.netrwhist

@@ -16,6 +16,10 @@ link zshrc
 link vimrc
 link vim
 
+# Ghostty config (cross-platform)
+mkdir -p $HOME/.config/ghostty
+ln -fs $HOME/.dotfiles/ghostty/config $HOME/.config/ghostty/config
+
 # macOS-specific setup
 if [ $(uname -o) = "Darwin" ]; then
   link vscode
