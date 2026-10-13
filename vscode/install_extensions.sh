@@ -4,6 +4,8 @@ code --install-extension anthropic.claude-code
 code --install-extension antyos.openscad
 code --install-extension anysphere.cursorpyright
 code --install-extension anysphere.pyright
+code --install-extension anysphere.remote-containers
+code --install-extension anysphere.remote-ssh
 code --install-extension be5invis.toml
 code --install-extension bierner.markdown-mermaid
 code --install-extension brody715.vscode-cuelang
@@ -42,15 +44,12 @@ code --install-extension ms-python.debugpy
 code --install-extension ms-python.python
 code --install-extension ms-python.vscode-pylance
 code --install-extension ms-vscode-remote.remote-containers
-code --install-extension ms-vscode-remote.remote-ssh
-code --install-extension ms-vscode-remote.remote-ssh-edit
 code --install-extension ms-vscode-remote.remote-wsl
 code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-vscode.hexeditor
 code --install-extension ms-vscode.live-server
 code --install-extension ms-vscode.makefile-tools
-code --install-extension ms-vscode.remote-explorer
 code --install-extension ms-vscode.remote-server
 code --install-extension ms-vscode.test-adapter-converter
 code --install-extension ms-vscode.vscode-serial-monitor

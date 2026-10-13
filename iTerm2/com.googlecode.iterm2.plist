@@ -23,7 +23,7 @@
 	<key>AiMaxTokens</key>
 	<integer>200000</integer>
 	<key>AiModel</key>
-	<string>claude-opus-4-6</string>
+	<string>claude-opus-4-8</string>
 	<key>AiResponseMaxTokens</key>
 	<integer>128000</integer>
 	<key>AitermURL</key>
@@ -32,6 +32,8 @@
 	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>ClickToSelectCommand</key>
+	<false/>
 	<key>Default Bookmark Guid</key>
 	<string>CCB549AA-5302-464D-A18C-E580554CD322</string>
 	<key>Default Browser Profile Guid</key>
@@ -244,7 +246,7 @@
 				<integer>1</integer>
 			</dict>
 			<key>Automatically Log</key>
-			<true/>
+			<false/>
 			<key>BM Growl</key>
 			<true/>
 			<key>Background Color</key>
@@ -368,6 +370,8 @@
 			<integer>1</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Is Dynamic Profile</key>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -530,32 +534,6 @@
 					<integer>10</integer>
 					<key>Text</key>
 					<string>d</string>
-				</dict>
-				<key>0xf72c-0x20000-0x74</key>
-				<dict>
-					<key>Action</key>
-					<integer>9</integer>
-					<key>Apply Mode</key>
-					<integer>0</integer>
-					<key>Escaping</key>
-					<integer>2</integer>
-					<key>Text</key>
-					<string></string>
-					<key>Version</key>
-					<integer>2</integer>
-				</dict>
-				<key>0xf72d-0x20000-0x79</key>
-				<dict>
-					<key>Action</key>
-					<integer>8</integer>
-					<key>Apply Mode</key>
-					<integer>0</integer>
-					<key>Escaping</key>
-					<integer>2</integer>
-					<key>Text</key>
-					<string></string>
-					<key>Version</key>
-					<integer>2</integer>
 				</dict>
 				<key>0xf739-0x0</key>
 				<dict>
@@ -845,9 +823,7 @@
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
-			<array>
-				<string>Dynamic</string>
-			</array>
+			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
@@ -1159,6 +1135,8 @@
 			<integer>1</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Is Dynamic Profile</key>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1610,9 +1588,7 @@
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
-			<array>
-				<string>Dynamic</string>
-			</array>
+			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>

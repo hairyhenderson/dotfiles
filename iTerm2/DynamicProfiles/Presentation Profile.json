@@ -24,7 +24,7 @@
       "Prevent Opening in a Tab": true,
       "Log Directory": "/Users/hairyhenderson/Documents/Demo Sessions",
       "Default Bookmark": "No",
-      "Automatically Log": true,
+      "Automatically Log": false,
       "Smart Cursor Color": false,
       "Background Color": {
         "Red Component": 0.1150360107421875,
